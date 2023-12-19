@@ -2,7 +2,9 @@
     "login": {
         "BASEURL": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
         "USERNAME": "Admin",
-        "PASSWORD": "admin123"
+        "PASSWORD": "admin123",
+        "newPassword": "test123",
+        "wrongPassword": "wrong"
     },
     "validaions": {
         "loginPage": {
