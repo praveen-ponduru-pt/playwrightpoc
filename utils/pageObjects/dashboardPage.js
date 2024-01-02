@@ -6,7 +6,7 @@ class DashboardPage {
 
         this.page = page;
         this.header = page.locator("div.oxd-topbar-header-title > span > h6");
-        this.profileMenu = page.locator("div.oxd-topbar-header-userarea > ul > li > span");
+        this.profileMenu = page.locator("div.oxd-topbar-header-userarea");
         this.logoutButton = page.locator("div.oxd-topbar-header-userarea > ul > li > ul > li:nth-child(4) > a");
     }
 
