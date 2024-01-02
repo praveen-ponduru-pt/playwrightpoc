@@ -8,6 +8,7 @@ class UpdatePasswordPage {
         this.profileMenu = page.locator("div.oxd-topbar-header-userarea > ul > li > span");
         this.changePasswordButton = page.getByRole('menuitem', { name: 'Change Password' });
         this.successMessage = page.locator("//*[@id=\"oxd-toaster_1\"]/div/div[1]/div[2]/p[2]");
+        this.passwordsDontMatchMessage = page.locator("div.oxd-form-row.user-password-row > div > div:nth-child(2) > div > span");
     }
 
     async updatePassword(currentPassword, newPassword, confirmPassword) {

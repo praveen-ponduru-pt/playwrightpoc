@@ -14,5 +14,11 @@
     },
     "headers": {
         "dashboard": "Dashboard"
+    },
+    "addEmployee": {
+        "firstName": "Praveen",
+        "middleName": "Kumar",
+        "lastName": "Pon",
+        "userName": "praveen.kumar"
     }
 }

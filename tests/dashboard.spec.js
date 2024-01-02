@@ -9,7 +9,12 @@ test.beforeEach(async ({ page }) => {
     await page.waitForLoadState();
 })
 
-test.skip("Navigate to Dashboard page", async ({ page }) => {
+test.afterEach(async ({ page }) => {
+
+    await library.logoutFromTheApplication(page);
+})
+
+test("Navigate to Dashboard page", async ({ page }) => {
 
     const dashboardPage = new DashboardPage(page);
     await expect(dashboardPage.header, "Verify header").toHaveText(headers.dashboard);
