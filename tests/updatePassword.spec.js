@@ -7,7 +7,6 @@ import { headers } from "../utils/constants.json"
 test.beforeEach(async ({ page }) => {
 
     await library.loginToTheApplication(page);
-    await page.waitForLoadState();
 })
 
 test.afterEach(async ({ page }) => {
@@ -20,6 +19,7 @@ test("Update Password", async ({ page }) => {
     const updatePasswordPage = new UpdatePasswordPage(page);
     await updatePasswordPage.updatePassword(login.PASSWORD, login.newPassword, login.newPassword);
 
+    await expect(updatePasswordPage.header).toHaveText(headers.updatePassword);
     await expect(updatePasswordPage.successMessage).toHaveText("Successfully Saved");
 })
 

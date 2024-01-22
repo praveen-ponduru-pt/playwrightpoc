@@ -14,7 +14,7 @@ class DashboardPage {
 
         await this.page.waitForLoadState();
         await this.profileMenu.click({ force: true });
-        await this.logoutButton.click({ force: true });
+        await this.logoutButton.click();
     }
 }
 

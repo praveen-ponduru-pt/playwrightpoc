@@ -1,6 +1,7 @@
 class UpdatePasswordPage {
     constructor(page) {
         this.page = page;
+        this.header = page.locator('div>h6');
         this.currentPassword = page.getByRole('textbox').nth(1);
         this.newPassword = page.getByRole('textbox').nth(2);
         this.confirmPassword = page.getByRole('textbox').nth(3);

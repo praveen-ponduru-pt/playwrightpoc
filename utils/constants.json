@@ -13,7 +13,8 @@
         }
     },
     "headers": {
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "updatePassword": "Update Password"
     },
     "addEmployee": {
         "employeeName": {

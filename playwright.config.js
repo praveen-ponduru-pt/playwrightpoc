@@ -23,15 +23,14 @@ module.exports = defineConfig({
 
   // timeout: 160000,
 
-
   /* Configure projects for major browsers */
   projects: [
 
-    // {
-    //   name: 'Orange HRMS',
-    //   testDir: './tests',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'Orange HRMS',
+      testDir: './tests',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
     // {
     //   name: 'firefox',
@@ -100,22 +99,6 @@ module.exports = defineConfig({
         extraHTTPHeaders: {
           'Accept': '*/*',
           'Authorization': '',
-        }
-      }
-    },
-
-
-    {
-      name: 'Communication Hub QA',
-      testDir: './api-tests/commHub1',
-      use: {
-        baseURL: 'https://communicationhub-qa.vcasoftware.com/',
-        extraHTTPHeaders: {
-          // // We set this header per GitHub guidelines.
-          // 'Accept': '*/*',
-          // // Add authorization token to all requests.
-          // // Assuming personal access token available in the environment.
-          // 'Authorization': `Bearer ${generateToken}`,
         }
       }
     }
