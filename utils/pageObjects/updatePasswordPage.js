@@ -20,6 +20,7 @@ class UpdatePasswordPage {
         await this.newPassword.fill(newPassword);
         await this.confirmPassword.fill(confirmPassword);
         await this.saveButton.click();
+        await this.page.waitForLoadState();
     }
 }
 

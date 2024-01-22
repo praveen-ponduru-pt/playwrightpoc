@@ -4,7 +4,7 @@ class PIMPage {
         this.page = page;
         this.pimMenu = page.getByRole('link', { name: 'PIM' });
         this.addButton = page.getByRole('button', { name: ' Add' });
-        this.firstName = page.getByPlaceholder('First Name');
+        this.firstName = page.locator("div>input[name='firstName']");
         this.middleName = page.getByPlaceholder('Middle Name');
         this.lastName = page.getByPlaceholder('Last Name');
         this.createLoginToggle = page.locator('form span');
@@ -17,19 +17,20 @@ class PIMPage {
         this.successMessage = page.locator('div.oxd-toast-content.oxd-toast-content--success > p.oxd-text.oxd-text--p.oxd-text--toast-message.oxd-toast-content-text');
     }
 
-    async addEmployee(firstName, middleName, lastName, username, password, confirmPassword) {
+    async addEmployee(employeeName, username, password, confirmPassword) {
 
         await this.page.waitForLoadState();
         await this.pimMenu.click();
         await this.addButton.click();
-        await this.firstName.fill(firstName);
-        await this.middleName.fill(middleName);
-        await this.lastName.fill(lastName);
+        await this.firstName.fill(employeeName.firstName);
+        await this.middleName.fill(employeeName.middleName);
+        await this.lastName.fill(employeeName.lastName);
         await this.createLoginToggle.click();
         await this.username.fill(username);
         await this.password.fill(password);
         await this.confirmPassword.fill(confirmPassword);
         await this.saveButton.click();
+        await this.page.waitForLoadState();
     }
 }
 

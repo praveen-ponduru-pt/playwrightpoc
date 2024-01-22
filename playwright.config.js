@@ -16,32 +16,22 @@ module.exports = defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
-    //   /* Base URL to use in actions like `await page.goto('/')`. */
-    //   // baseURL: 'https://policyconnect-qa.vcasoftware.com',
-    //   extraHTTPHeaders: {
-    //     // We set this header per GitHub guidelines.
-    //     'Accept': '*/*',
-    //     'companyId': '44AB7DA9-A276-4BFB-8675-E46BE20B0682',
-    //     // Add authorization token to all requests.
-    //     // Assuming personal access token available in the environment.
-    //     'Authorization': '',
-    //   },
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
-
-    screenshot: 'only-on-failure'
+    screenshot: 'only-on-failure',
+    headless: false
   },
 
   // timeout: 160000,
 
+
   /* Configure projects for major browsers */
   projects: [
 
-    {
-      name: 'chromium',
-      testDir: './tests',
-      use: { ...devices['Desktop Chrome'] },
-    },
+    // {
+    //   name: 'Orange HRMS',
+    //   testDir: './tests',
+    //   use: { ...devices['Desktop Chrome'] },
+    // },
 
     // {
     //   name: 'firefox',
@@ -72,9 +62,10 @@ module.exports = defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
+
     {
       name: 'Policy Connect QA',
-      testDir: './api-tests/policyConnect1',
+      testDir: './api-tests/policyConnect',
       fullyParallel: false,
       use: {
         baseURL: 'https://policyconnect-qa.vcasoftware.com',
@@ -128,13 +119,6 @@ module.exports = defineConfig({
         }
       }
     }
-  ],
+  ]
 
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://127.0.0.1:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
-

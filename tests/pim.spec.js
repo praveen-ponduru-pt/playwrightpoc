@@ -14,10 +14,9 @@ test.afterEach(async ({ page }) => {
     await library.logoutFromTheApplication(page);
 })
 
-test("Add Employee", async ({ page }) => {
+test.only("Add Employee", async ({ page }) => {
 
     const pimPage = new PIMPage(page);
-    await pimPage.addEmployee(addEmployee.firstName, addEmployee.middleName, addEmployee.lastName,
-        addEmployee.userName, login.PASSWORD, login.PASSWORD);
+    await pimPage.addEmployee(addEmployee.employeeName, addEmployee.userName, login.PASSWORD, login.PASSWORD);
     await expect(pimPage.successMessage).toHaveText('Successfully Saved');
 })

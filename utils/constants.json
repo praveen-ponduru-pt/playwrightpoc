@@ -16,9 +16,16 @@
         "dashboard": "Dashboard"
     },
     "addEmployee": {
-        "firstName": "Praveen",
-        "middleName": "Kumar",
-        "lastName": "Pon",
+        "employeeName": {
+            "firstName": "Praveen",
+            "middleName": "Kumar",
+            "lastName": "Ponduru"
+        },
         "userName": "praveen.kumar"
+    },
+    "apiURLS": {
+        "DEVPOLICYCONNECTURL": "https://policyconnect-ic.vcasoftware.com",
+        "QAPOLICYCONNECTURL": "https://policyconnect-qa.vcasoftware.com",
+        "UATPOLICYCONNECTURL": "https://policyconnect-uat.vcasoftware.com"
     }
 }
