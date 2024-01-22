@@ -14,34 +14,34 @@ module.exports = defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
-  // use: {
+  use: {
 
-  //   /* Base URL to use in actions like `await page.goto('/')`. */
-  //   // baseURL: 'https://policyconnect-qa.vcasoftware.com',
-  //   extraHTTPHeaders: {
-  //     // We set this header per GitHub guidelines.
-  //     'Accept': '*/*',
-  //     'companyId': '44AB7DA9-A276-4BFB-8675-E46BE20B0682',
-  //     // Add authorization token to all requests.
-  //     // Assuming personal access token available in the environment.
-  //     'Authorization': '',
-  //   },
-  //   /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-  //   trace: 'on-first-retry',
+    //   /* Base URL to use in actions like `await page.goto('/')`. */
+    //   // baseURL: 'https://policyconnect-qa.vcasoftware.com',
+    //   extraHTTPHeaders: {
+    //     // We set this header per GitHub guidelines.
+    //     'Accept': '*/*',
+    //     'companyId': '44AB7DA9-A276-4BFB-8675-E46BE20B0682',
+    //     // Add authorization token to all requests.
+    //     // Assuming personal access token available in the environment.
+    //     'Authorization': '',
+    //   },
+    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+    trace: 'retain-on-failure',
 
-  //   screenshot: 'only-on-failure'
-  // },
+    screenshot: 'only-on-failure'
+  },
 
   // timeout: 160000,
 
   /* Configure projects for major browsers */
   projects: [
 
-    // {
-    //   name: 'chromium',
-    //   // testDir: './tests',
-    //   use: { ...devices['Desktop Chrome'] },
-    // },
+    {
+      name: 'chromium',
+      testDir: './tests',
+      use: { ...devices['Desktop Chrome'] },
+    },
 
     // {
     //   name: 'firefox',
@@ -74,24 +74,20 @@ module.exports = defineConfig({
     // },
     {
       name: 'Policy Connect QA',
-      testDir: './api-tests/policyConnects',
+      testDir: './api-tests/policyConnect1',
       fullyParallel: false,
       use: {
         baseURL: 'https://policyconnect-qa.vcasoftware.com',
         extraHTTPHeaders: {
 
           'companyId': '44AB7DA9-A276-4BFB-8675-E46BE20B0682',
-        },
-
-        trace: 'on-first-retry',
-        screenshot: 'only-on-failure'
-
+        }
       }
     },
 
     {
       name: 'Policy Connect DEV',
-      testDir: './api-tests/policyConnects',
+      testDir: './api-tests/policyConnect1',
       use: {
         baseURL: 'https://policyconnect-ic.vcasoftware.com',
         extraHTTPHeaders: {
@@ -100,11 +96,7 @@ module.exports = defineConfig({
           'companyId': '44AB7DA9-A276-4BFB-8675-E46BE20B0682',
 
           'Authorization': '',
-        },
-
-        trace: 'on-first-retry',
-
-        screenshot: 'only-on-failure'
+        }
       }
     },
 
@@ -117,18 +109,14 @@ module.exports = defineConfig({
         extraHTTPHeaders: {
           'Accept': '*/*',
           'Authorization': '',
-        },
-
-        trace: 'on-first-retry',
-
-        screenshot: 'only-on-failure'
+        }
       }
     },
 
 
     {
       name: 'Communication Hub QA',
-      testDir: './api-tests/commHub',
+      testDir: './api-tests/commHub1',
       use: {
         baseURL: 'https://communicationhub-qa.vcasoftware.com/',
         extraHTTPHeaders: {
@@ -137,11 +125,7 @@ module.exports = defineConfig({
           // // Add authorization token to all requests.
           // // Assuming personal access token available in the environment.
           // 'Authorization': `Bearer ${generateToken}`,
-        },
-        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-        trace: 'on-first-retry',
-
-        screenshot: 'only-on-failure'
+        }
       }
     }
   ],
